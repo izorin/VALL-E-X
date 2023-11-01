@@ -8,6 +8,7 @@ from scipy.io.wavfile import write as write_wav
 # from IPython.display import Audio, display
 
 import os
+import matplotlib.pyplot as plt
 
 # download and load all models
 preload_models()
@@ -25,6 +26,10 @@ Hello, my name is Slimshady. Will the real Slimshady please stand up, please sta
 preset = presets[0]
 prompt = presets_path + '/' + preset
 audio_array = generate_audio(text_prompt, prompt=prompt)
+plt.figure()
+plt.plot(audio_array)
+plt.show()
 print(audio_array.shape)
+
 # print(preset)
 # display(Audio(audio_array, rate=SAMPLE_RATE))

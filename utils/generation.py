@@ -109,9 +109,10 @@ def generate_audio(text, prompt=None, language='auto', accent='no-accent'):
         if not os.path.exists(prompt_path):
             raise ValueError(f"Cannot find prompt {prompt}")
         prompt_data = np.load(prompt_path)
-        audio_prompts = prompt_data['audio_tokens']
-        text_prompts = prompt_data['text_tokens']
-        lang_pr = prompt_data['lang_code']
+        # load voice preset includeing 
+        audio_prompts = prompt_data['audio_tokens'] # audio tokens - embedding
+        text_prompts = prompt_data['text_tokens'] # text in the preset audio 
+        lang_pr = prompt_data['lang_code'] # language of the preset
         lang_pr = code2lang[int(lang_pr)]
 
         # numpy to tensor
@@ -122,9 +123,9 @@ def generate_audio(text, prompt=None, language='auto', accent='no-accent'):
         text_prompts = torch.zeros([1, 0]).type(torch.int32)
         lang_pr = lang if lang != 'mix' else 'en'
 
-    enroll_x_lens = text_prompts.shape[-1]
+    enroll_x_lens = text_prompts.shape[-1] # length of the text in preset
     logging.info(f"synthesize text: {text}")
-    phone_tokens, langs = text_tokenizer.tokenize(text=f"_{text}".strip())
+    phone_tokens, langs = text_tokenizer.tokenize(text=f"_{text}".strip()) # 
     text_tokens, text_tokens_lens = text_collater(
         [
             phone_tokens
