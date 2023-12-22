@@ -4,6 +4,8 @@ import torch.nn as nn
 
 from .symbol_table import SymbolTable
 
+
+
 # make_pad_mask = make_pad_mask
 SymbolTable = SymbolTable
 
@@ -13,3 +15,4 @@ class Transpose(nn.Identity):
 
     def forward(self, input: torch.Tensor) -> torch.Tensor:
         return input.transpose(1, 2)
+

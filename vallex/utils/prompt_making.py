@@ -14,7 +14,7 @@ from data.tokenizer import (
 from data.collation import get_text_token_collater
 from utils.g2p import PhonemeBpeTokenizer
 
-from macros import *
+from code.vallex.vallex.macros import *
 
 text_tokenizer = PhonemeBpeTokenizer(tokenizer_path="./utils/g2p/bpe_69.json")
 text_collater = get_text_token_collater()

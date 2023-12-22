@@ -3,16 +3,16 @@ import argparse
 import torch.nn as nn
 # from icefall.utils import AttributeDict, str2bool
 
-from .macros import (
-    NUM_AUDIO_TOKENS,
-    NUM_MEL_BINS,
-    NUM_SPEAKER_CLASSES,
-    NUM_TEXT_TOKENS,
-    SPEAKER_EMBEDDING_DIM,
-)
-from .transformer import Transformer
-from .vallex import VALLE, VALLF
-from .visualizer import visualize
+# from vallex.macros import (
+#     # NUM_AUDIO_TOKENS,
+#     NUM_MEL_BINS,
+#     NUM_SPEAKER_CLASSES,
+#     NUM_TEXT_TOKENS,
+#     SPEAKER_EMBEDDING_DIM,
+# )
+from vallex.models.transformer import Transformer
+from vallex.models.vallex import VALLE, VALLF
+from vallex.models.visualizer import visualize
 
 
 def add_model_arguments(parser: argparse.ArgumentParser):

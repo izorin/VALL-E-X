@@ -41,7 +41,7 @@ from data.collation import get_text_token_collater
 from models.vallex import VALLE
 from utils.g2p import PhonemeBpeTokenizer
 from descriptions import *
-from macros import *
+from code.vallex.vallex.macros import *
 from examples import *
 
 import gradio as gr
